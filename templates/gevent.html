@@ -1,0 +1,87 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">红雀</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">主页</a></li>
+                    <li><a href="http://192.168.1.103:5000/">文件服务器</a></li>
+                    <li><a href="https://www.baidu.com/">百度</a></li>
+                    <li><a href="https://github.com">github</a></li>
+                </ul>
+            </div>
+            <div class="dropdown bigtooltip">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    选择你要的执行方式
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="/test">顺序执行（有一些并发）</a></li>
+                    <li><a href="/gevent">gevent协程并发执行</a></li>
+                    <li><a href="/mul">多进程并行执行</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="/">回到主页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>主机名</th>
+                    <th>命令１</th>
+                    <th>命令２</th>
+                    <th>所用时间</th>
+                    <th>CS50</th>
+                </tr>
+                </thead>
+                <tbody>
+                {#                {% for item in items %}#}
+                <tr>
+                    <td>ssh1</td>
+                    <td>echo $PATH</td>
+                    <td>cat /proc/meminfo</td>
+                    <td>{{ time_lost }}</td>
+                    <td><a href="http://192.168.1.103:8080/static/">进入文件服务器下载文件查看执行结果</a></td>
+                </tr>
+
+                <tr>
+                    <td>ssh2</td>
+                    <td>echo $PATH</td>
+                    <td>cat /proc/meminfo</td>
+                    <td>{{ time_lost }}</td>
+                    <td><a href="http://192.168.1.103:8080/static/">进入文件服务器下载文件查看执行结果</a></td>
+                </tr>
+
+                <tr>
+                    <td>ssh3</td>
+                    <td>echo $PATH</td>
+                    <td>cat /proc/meminfo</td>
+                    <td>{{ time_lost }}</td>
+                    <td><a href="http://192.168.1.103:8080/static/">进入文件服务器下载文件查看执行结果</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
